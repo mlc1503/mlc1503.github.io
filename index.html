@@ -3,34 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La mente extendida de manel">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <title>Manel's Extended Mind</title>
     <style>
-        body{
-            margin: 40px auto;
-            max-width: 650px;
-            line-height: 1.6;
-            font-size: 18px;
-            color: #dadada;
-            padding: 0 10px;
-
-            background-image: url("clouds.avif");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    body {
+        background-image: url("./img/clouds.avif");
+        background-size: cover;
+        background-position: top;
+        background-attachment: fixed;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: relative; /* Needed for absolute footer positioning */
+    }
+    body>*{
+        line-height: 1.6;
+        font-size: 18px;
+        font-family: "Spline Sans Mono", monospace;
+        color: #dadada;
+        padding: 0 10px;
+    }
+    header, main {
+        margin: 10px auto;
+        max-width: 650px;
+    }
+    header{
+        width: 100%;
+    }
+    footer {
+        position: fixed; /* Fixes footer to the viewport */
+        bottom: 0;       /* Pins it to the bottom */
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    main {
+        margin-bottom: 60px; /* Prevents content from hiding behind footer */
+    }
     </style>
 </head>
 <body>
-
-    <main>
+    <header>
         <h1>
             Hola, soy Manel
         </h1>
-        
-        <p>Esta es mi web personal. Aquí me puedes conocer, contactar o ver las cosas que estoy haciendo en estos momentos.</p>
-        
-        <p>Todavía no sé que hacer con esta web. Está en construcción. Dame tiempo, valdrá la pena.</p>
+        <small>Última actualización:
+            <time datetime="2025-06-19">19 de Junio de 2025</time>
+        </small>
+
+    </header>
+
+    <main>
+        <article>
+            <p>Esta es mi web personal. Aquí me podrás conocer, contactar o ver las cosas que estoy haciendo en ese momento.</p>
+            <p>
+                Aquí terminaré poniendo mis pensamientos, intereses, sueños y proyectos. Será una 'extensión de mi mente'.
+            </p>
+            
+            <p>Todavía no sé que hacer con esta web. Está en construcción. Dame tiempo, valdrá la pena.</p>
+        </article>
     </main>
 
+    <footer>
+        <div>
+            <small><i>Human After All</i></small>
+        </div>
+    </footer>
 </body>
 </html>
