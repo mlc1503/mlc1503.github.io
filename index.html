@@ -18,7 +18,7 @@
         
         /* Font Variables */
         --font-family: "Spline Sans Mono", monospace;
-        --font-size: 16px;
+        --font-size: clamp(14px, 2vw, 18px);
         --line-height: 1.6;
         
         /* Spacing Variables */
@@ -29,7 +29,7 @@
         --border-radius: 10px;
 
         /* Resources */
-        --background-image: url("./img/clouds.avif")
+        --background-image: url("./img/clouds.avif");
     }
 
     body {
@@ -50,16 +50,13 @@
         font-family: var(--font-family);
         color: var(--text-color);
         padding: 0 var(--padding-horizontal);
+        box-sizing: border-box;
     }
 
     header, main {
         margin: 10px auto;
         max-width: var(--content-max-width);
         width: 100%;
-    }
-
-    header {
-        box-sizing: border-box;
     }
 
     footer {
