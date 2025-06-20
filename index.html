@@ -7,128 +7,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/landing.css">
     <title>Manel's Extended Mind</title>
-    <style>
-    :root {
-        /* Color Variables */
-        --primary-color: #068d9d;
-        --text-color: #eaeaec;
-        --footer-bg: rgba(0, 0, 0, 0.3);
-        --button-shadow: rgba(0, 0, 0, 0.3);
-        
-        /* Font Variables */
-        --font-family: "Spline Sans Mono", monospace;
-        --font-size: clamp(14px, 2vw, 18px);
-        --line-height: 1.6;
-        
-        /* Spacing Variables */
-        --padding-horizontal: 10px;
-        --content-max-width: 650px;
-        --footer-padding: 30px 0;
-        --button-padding: 10px;
-        --border-radius: 10px;
-
-        /* Resources */
-        --background-image: url("./img/clouds.avif");
-    }
-
-    body {
-        background-image: var(--background-image);
-        background-size: cover;
-        background-position: top;
-        background-attachment: fixed;
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-
-    body > * {
-        line-height: var(--line-height);
-        font-size: var(--font-size);
-        font-family: var(--font-family);
-        color: var(--text-color);
-        padding: 0 var(--padding-horizontal);
-        box-sizing: border-box;
-    }
-
-    header, main {
-        margin: 10px auto;
-        max-width: var(--content-max-width);
-        width: 100%;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 0;
-        width: 100vw;
-        text-align: center;
-        padding: var(--footer-padding);
-        background-color: var(--footer-bg);
-        backdrop-filter: blur(5px); /* Added for better readability */
-    }
-
-    main {
-        margin-bottom: 60px; /* Space for fixed footer */
-    }
-
-    a {
-        color: var(--primary-color);
-        text-decoration: none;
-        transition: text-decoration 0.2s ease; /* Smooth hover transition */
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    button {
-        background-color: var(--primary-color);
-        border: 0;
-        padding: var(--button-padding);
-        border-radius: var(--border-radius);
-        color: inherit;
-        box-shadow: 0px 5px 5px 0px var(--button-shadow);
-        transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
-    }
-
-    button:hover {
-        cursor: pointer;
-        transform: translateY(-1px); /* Slight lift effect */
-        box-shadow: 0px 6px 8px 0px var(--button-shadow);
-    }
-    </style>
 </head>
 <body>
     <header>
-        <h1>
-            Hi, I'm Manel
-        </h1>
-        <small>Last updated:
-            <time datetime="2025-06-19">19-06-2025</time>
-        </small>
+        <hgroup>
+            <h1>Hi, I'm Manel</h1>
+            <p>Last updated: <time datetime="2025-06-20">20-06-2025</time></p>
+        </hgroup>
 
     </header>
 
     <main>
         <article>
-            <p>This is my personal webpage. Here you will get to know me, contact me, or see what I'm up to right now.</p>
-            <p>
-                Here I will post my thoughts, interests, dreams and projects. It'll be like an 'extension of my mind'.
-            </p>
+            <section>
+                <h3>What can you find here?</h3>
+                <p>This is my personal webpage. Here you can get to know me, contact me, or see what I'm up to right now.</p>
+                <p>
+                    I want to share my mind to anyone who's interested. I want to show, explain and talk about things that I have in my mind.
+                </p>
+            </section>
             
-            <p>I still don't know what to do with this. Still under construction. Give me some time, it will be cool.</p>
-
-            <p>
-                In the meantime, you can check my <a href="https://x.com/chunlynoodles">twitter</a>.
-            </p>
-
-            <!-- <a href="./astro.html" style="color: var(--text-color);"><button>Hola</button></a> -->
-
+            <!-- <p>You can also check my <a href="https://x.com/chunlynoodles">twitter</a>.</p> 
+            <a href="./astro.html" style="color: inherit"><button>Hola</button></a> -->
+            <br>
+            <section>
+                <h3>Where can I go?</h3>
+                <ul>
+                    <li>
+                        <p><a href="/music/">Music</a></p>
+                    </li>
+                    <li>
+                        <p><a href="/art/">Photography</a></p>
+                    </li>
+                </ul>
+            </section>
+                
         </article>
     </main>
-
+    
     <footer>
         <div>
             <small><i>Human After All</i></small>

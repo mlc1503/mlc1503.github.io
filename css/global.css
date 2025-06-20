@@ -1,0 +1,22 @@
+:root {
+    /* Color Variables */
+    --primary-color: #068d9d;
+    --text-color: #eaeaec;
+    --footer-bg: rgba(0, 0, 0, 0.3);
+    --button-shadow: rgba(0, 0, 0, 0.3);
+    
+    /* Font Variables */
+    --font-family: "Spline Sans Mono", monospace;
+    --font-size: clamp(14px, 2vw, 18px);
+    --line-height: 1.6;
+    
+    /* Spacing Variables */
+    --padding-horizontal: 10px;
+    --content-max-width: 650px;
+    --footer-padding: 3vh 0;
+    --button-padding: 10px;
+    --border-radius: 10px;
+
+    /* Resources */
+    --background-image: url("../img/clouds.avif");
+}
