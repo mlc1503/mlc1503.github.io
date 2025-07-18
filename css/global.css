@@ -12,10 +12,11 @@
     
     /* Spacing Variables */
     --padding-horizontal: 10px;
-    --content-max-width: 650px;
+    --content-max-width: 750px;
     --footer-padding: 3vh 0;
     --button-padding: 10px;
     --border-radius: 10px;
+    --section-spacing: 3em;
 
     /* Resources */
     --background-image: url("../img/clouds.avif");
