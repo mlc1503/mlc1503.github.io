@@ -6,13 +6,13 @@
     --button-shadow: rgba(0, 0, 0, 0.3);
     
     /* Font Variables */
-    --font-family: "Spline Sans Mono", monospace;
-    --font-size: clamp(14px, 2vw, 18px);
+    --font-family: "Spline Sans Mono", Lucida Console, Arial;
+    --font-size: clamp(14px, 1vw, 32px);
     --line-height: 1.6;
     
     /* Spacing Variables */
     --padding-horizontal: 10px;
-    --content-max-width: 750px;
+    --content-max-width: clamp(750px, 40%, 1200px);
     --footer-padding: 3vh 0;
     --button-padding: 10px;
     --border-radius: 10px;
