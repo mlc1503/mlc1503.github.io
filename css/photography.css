@@ -1,0 +1,26 @@
+.picture-container img{
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: var(--text-color);
+    padding: var(--border-radius);
+    box-shadow: 2px 2px 15px 15px var(--button-shadow);
+    border-radius: var(--border-radius);
+}
+
+div.picture-container{
+    background-color: var(--text-color);
+    border-radius: var(--border-radius);
+    display: block;
+    align-items: flex-start;
+    text-align: end;
+    padding-bottom: 5px;
+}
+
+div.picture-container small{
+    color: black;
+    padding: 1rem;
+}
+
+article>*{
+    padding-bottom: 5rem;
+}
