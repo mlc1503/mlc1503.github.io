@@ -16,9 +16,11 @@ div.picture-container{
     padding-bottom: 5px;
 }
 
-div.picture-container small{
+.text-composition{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
     color: black;
-    padding: 1rem;
 }
 
 article>*{
