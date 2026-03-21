@@ -3,7 +3,7 @@
     display: inline-block;
     background-color: var(--text-color);
     padding: var(--border-radius);
-    box-shadow: 2px 2px 15px 15px var(--button-shadow);
+    box-shadow: 0 5px 5px var(--button-shadow);
     border-radius: var(--border-radius);
 }
 
@@ -25,4 +25,10 @@ div.picture-container{
 
 article>*{
     padding-bottom: 5rem;
+}
+
+.pictures{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3em;    
 }
