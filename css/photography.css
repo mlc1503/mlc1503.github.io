@@ -1,4 +1,4 @@
-.picture-container img{
+.picture-container img {
     box-sizing: border-box;
     display: inline-block;
     background-color: var(--text-color);
@@ -7,7 +7,7 @@
     border-radius: var(--border-radius);
 }
 
-div.picture-container{
+div.picture-container {
     background-color: var(--text-color);
     border-radius: var(--border-radius);
     display: block;
@@ -16,19 +16,15 @@ div.picture-container{
     padding-bottom: 5px;
 }
 
-.text-composition{
+.text-composition {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
     color: black;
 }
 
-article>*{
-    padding-bottom: 5rem;
-}
-
-.pictures{
+.pictures {
     display: flex;
     flex-direction: column;
-    row-gap: 3em;    
+    row-gap: 3em;
 }
