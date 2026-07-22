@@ -1,0 +1,11 @@
+section>p:first-of-type{
+    text-indent: var(--);
+}
+
+p{
+    padding-bottom: 2em;
+}
+
+section>p:last-of-type{
+    padding-bottom: unset;
+}
