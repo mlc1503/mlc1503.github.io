@@ -80,46 +80,55 @@
         </ul>
     </div>
 
-    <input type="range" name="" id="rotationSlider"
-        min="0"
-        max="360"
-        value="180"
-    >
-
-
     <script>
-        const slider = document.getElementById("rotationSlider")
-        const albums = document.querySelectorAll(".album")
-        const STEP = -27
+        const wrapper = document.querySelector(".cards-wrapper");
+        const albums = document.querySelectorAll(".album");
 
+        const MAX_ROTATION = 65;   // degrees
+        const ROTATION_FACTOR = 0.18;
 
-        slider.addEventListener("input", (e) => {
-            const value = Number(e.target.value); // 0-360
+        function updateRotations() {
+            const wrapperCenter =
+                wrapper.scrollLeft + wrapper.clientWidth / 2;
 
-            const center = Math.round(
-                (value / 360) * (albums.length - 1)
-            );
+            albums.forEach(album => {
+                const rect = album.parentElement;
 
-            albums.forEach((element, index) => {
-                const rotation = (index - center) * STEP;
-                element.style.transform = `rotateY(${rotation}deg)`;
+                const albumCenter =
+                    rect.offsetLeft + rect.offsetWidth / 2;
+
+                const distance = albumCenter - wrapperCenter;
+
+                let rotation = distance * ROTATION_FACTOR;
+
+                rotation = Math.max(
+                    -MAX_ROTATION,
+                    Math.min(MAX_ROTATION, rotation)
+                );
+
+                album.style.transform = `rotateY(${rotation}deg)`;
             });
-        });
-
-        function getYDegrees(element) {
-            try {
-                let transform = getComputedStyle(element).transform
-
-                const matrix = new DOMMatrixReadOnly(transform)
-
-                let angle = Math.round(Math.atan2(matrix.m13, matrix.m11) * (180/Math.PI));
-
-                return -angle
-                
-            } catch (error) {
-                throw error;
-            } 
         }
+
+        wrapper.addEventListener("scroll", updateRotations);
+        window.addEventListener("resize", updateRotations);
+
+        updateRotations();
+
+        // function getYDegrees(element) {
+        //     try {
+        //         let transform = getComputedStyle(element).transform
+
+        //         const matrix = new DOMMatrixReadOnly(transform)
+
+        //         let angle = Math.round(Math.atan2(matrix.m13, matrix.m11) * (180/Math.PI));
+
+        //         return -angle
+                
+        //     } catch (error) {
+        //         throw error;
+        //     } 
+        // }
     </script>
 </body>
 
