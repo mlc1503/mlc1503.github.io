@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Flow</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .cards{
+            list-style-type: none;
+            display: flex;
+            column-gap: 1em;
+            
+        }
+
+        .cards li{
+            perspective: calc(192px * 4);
+        }
+
+        .album{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            height: 192px;
+            aspect-ratio: 1;
+
+            transform-style: preserve-3d;
+        }
+        input{
+            width: 20em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cards-wrapper">
+        <ul class="cards">
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+            <li>
+                <div class="album" style="background:#ff4d4d">1asd</div>
+            </li>
+        </ul>
+    </div>
+
+    <input type="range" name="" id="rotationSlider"
+        min="0"
+        max="360"
+        value="180"
+    >
+
+
+    <script>
+        const slider = document.getElementById("rotationSlider")
+        const albums = document.querySelectorAll(".album")
+        const STEP = -27
+
+
+        slider.addEventListener("input", (e) => {
+            const value = Number(e.target.value); // 0-360
+
+            const center = Math.round(
+                (value / 360) * (albums.length - 1)
+            );
+
+            albums.forEach((element, index) => {
+                const rotation = (index - center) * STEP;
+                element.style.transform = `rotateY(${rotation}deg)`;
+            });
+        });
+
+        function getYDegrees(element) {
+            try {
+                let transform = getComputedStyle(element).transform
+
+                const matrix = new DOMMatrixReadOnly(transform)
+
+                let angle = Math.round(Math.atan2(matrix.m13, matrix.m11) * (180/Math.PI));
+
+                return -angle
+                
+            } catch (error) {
+                throw error;
+            } 
+        }
+    </script>
+</body>
+
+</html>
