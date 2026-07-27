@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cover Flow</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La mente extendida de valira">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/global.css">
 
     <style>
@@ -32,7 +38,6 @@
             perspective: calc(192px * 4);
             scroll-snap-align: center;
             scroll-padding: 0;
-            /* border: 1px solid; */
         }
 
         .album{
@@ -44,70 +49,52 @@
             aspect-ratio: 1;
             scroll-padding: 0;
 
-
             transform-style: preserve-3d;
         }
+
     </style>
 </head>
 
 <body>
     <div class="cards-wrapper">
+
         <ul class="cards">
             <li class="spacer"></li>
-            <li>
+            <li id="1">
                 <picture class="album">
                     <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
-            <li>
+            <li id="2">
                 <div class="album" style="background:#ff4d4d">1asd</div>
             </li>
-            <li>
+            <li id="3">
                 <div class="album" style="background:#ff4d4d">1asd</div>
             </li>
-            <li>
+            <li id="4">
                 <picture class="album">
                     <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
-            <li>
+            <li id="5">
                 <picture class="album">
                     <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
-            <li>
+            <li id="6">
                 <picture class="album">
                     <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li>
-                <div class="album" style="background:#ff4d4d">1asd</div>
             </li>
             <li class="spacer"></li>
         </ul>
     </div>
+
+    <div class="text"></div>
 
     <script>
         const wrapper = document.querySelector(".cards-wrapper");
@@ -116,6 +103,26 @@
 
         const MAX_ROTATION = 65;   // degrees
         const ROTATION_FACTOR = 0.18;
+
+
+        albumInfo = [
+            "lorem1",
+            `<div class="info">
+                <p>
+                    For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
+                </p>
+                <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
+
+                <p>
+
+                    Honestly you should just go and listen to them, you'll thank me afterwards.
+                </p>
+                <p>
+                    P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
+                </p>
+            </div>`,
+            "lorem3"
+        ]
         
         
         function updateMargins(){
@@ -123,18 +130,15 @@
             const DISTANCE_TO_CENTER = document.documentElement.clientWidth / 2
             const HALF_ALBUM = albums[0].clientWidth / 2
     
-            // distance_to_center - half_album = spacer_width
-            
             spacers.forEach(spacer => {
-                spacer.style.minWidth = `${DISTANCE_TO_CENTER - HALF_ALBUM}px` // +5px for snapping
+                // distance_to_center - half_album = spacer_width
+                spacer.style.minWidth = `${DISTANCE_TO_CENTER - HALF_ALBUM}px`
             });
         }
         
 
         function updateRotations() {
-            const wrapperCenter =
-                wrapper.scrollLeft + wrapper.clientWidth / 2;
-                // document.documentElement.scrollLeft + wrapper.clientWidth / 2; //document.documentElement is root element of DOM (<html>)
+            const wrapperCenter = wrapper.scrollLeft + wrapper.clientWidth / 2;
 
             albums.forEach(album => {
                 const rect = album.parentElement;
@@ -155,9 +159,37 @@
             });
         }
 
-        // window.addEventListener("scroll", updateRotations);
-        wrapper.addEventListener("scroll", updateRotations);
+        function loadText(id){
+            let text = document.querySelector(".text")
+
+            if(id != null && id != ''){
+                text.innerHTML = albumInfo[id]
+            }
+            else{
+                text.innerHTML = ''
+            }
+        }
+
         window.addEventListener("resize", updateMargins);
+        wrapper.addEventListener("scroll", updateRotations);
+        wrapper.addEventListener("scrollsnapchange", (event) => {
+            const snappedElement = event.snapTargetBlock || event.snapTargetInline
+            if(snappedElement){
+                if(snappedElement.id == ''){
+                    albums[1].scrollIntoView({behavior: 'smooth'});
+                    
+                }
+
+                loadText(snappedElement.id)
+                
+            }
+        });
+
+        window.onload = ()=> {
+            albums[1].scrollIntoView({behavior: "smooth"})
+            loadText(albums[1].id)
+        }
+        
 
         updateMargins();
         updateRotations();
