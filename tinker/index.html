@@ -13,20 +13,25 @@
 
         .cards-wrapper{
             border: 1px solid;
-            width: 1700px;
+            width: 100%;
             height: fit-content;
             overflow-x: scroll;
+
+            scroll-snap-type: x mandatory;
         }
 
         .cards{
             list-style-type: none;
             display: flex;
-            column-gap: 1em;
-            
+
+            padding: 0;
         }
 
         .cards li{
             perspective: calc(192px * 4);
+            scroll-snap-align: center;
+
+            /* border: 1px solid; */
         }
 
         .album{
@@ -45,6 +50,7 @@
 <body>
     <div class="cards-wrapper">
         <ul class="cards">
+            <li class="spacer"></li>
             <li>
                 <picture class="album">
                     <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
@@ -96,15 +102,29 @@
             <li>
                 <div class="album" style="background:#ff4d4d">1asd</div>
             </li>
+            <li class="spacer"></li>
         </ul>
     </div>
 
     <script>
         const wrapper = document.querySelector(".cards-wrapper");
         const albums = document.querySelectorAll(".album");
+        const spacers = document.querySelectorAll(".spacer")
 
         const MAX_ROTATION = 65;   // degrees
         const ROTATION_FACTOR = 0.18;
+
+        const distance_to_center = document.documentElement.clientWidth / 2
+        const half_album = albums[0].clientWidth / 2
+
+        // distance_to_center = spacer + half_album
+        // distance_to_center = x + half_album
+        // distance_to_center - half_album = x
+
+        spacers.forEach(spacer => {
+            spacer.style.minWidth = `${distance_to_center - half_album}px`
+        });
+        
 
         function updateRotations() {
             const wrapperCenter =
