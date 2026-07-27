@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cover Flow</title>
+    <link rel="stylesheet" href="../css/global.css">
 
     <style>
         * {
@@ -30,7 +31,7 @@
         .cards li{
             perspective: calc(192px * 4);
             scroll-snap-align: center;
-
+            scroll-padding: 0;
             /* border: 1px solid; */
         }
 
@@ -41,6 +42,8 @@
             
             height: 192px;
             aspect-ratio: 1;
+            scroll-padding: 0;
+
 
             transform-style: preserve-3d;
         }
@@ -113,17 +116,19 @@
 
         const MAX_ROTATION = 65;   // degrees
         const ROTATION_FACTOR = 0.18;
-
-        const distance_to_center = document.documentElement.clientWidth / 2
-        const half_album = albums[0].clientWidth / 2
-
-        // distance_to_center = spacer + half_album
-        // distance_to_center = x + half_album
-        // distance_to_center - half_album = x
-
-        spacers.forEach(spacer => {
-            spacer.style.minWidth = `${distance_to_center - half_album}px`
-        });
+        
+        
+        function updateMargins(){
+            
+            const DISTANCE_TO_CENTER = document.documentElement.clientWidth / 2
+            const HALF_ALBUM = albums[0].clientWidth / 2
+    
+            // distance_to_center - half_album = spacer_width
+            
+            spacers.forEach(spacer => {
+                spacer.style.minWidth = `${DISTANCE_TO_CENTER - HALF_ALBUM}px` // +5px for snapping
+            });
+        }
         
 
         function updateRotations() {
@@ -152,8 +157,9 @@
 
         // window.addEventListener("scroll", updateRotations);
         wrapper.addEventListener("scroll", updateRotations);
-        window.addEventListener("resize", updateRotations);
+        window.addEventListener("resize", updateMargins);
 
+        updateMargins();
         updateRotations();
 
     </script>
