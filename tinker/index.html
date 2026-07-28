@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cover Flow</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="La mente extendida de valira">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/global.css">
 
     <style>
@@ -18,7 +17,7 @@
             box-sizing: border-box;
         }
 
-        .cards-wrapper{
+        .cards-wrapper {
             border: 1px solid;
             width: 100%;
             height: fit-content;
@@ -27,31 +26,30 @@
             scroll-snap-type: x mandatory;
         }
 
-        .cards{
+        .cards {
             list-style-type: none;
             display: flex;
 
             padding: 0;
         }
 
-        .cards li{
+        .cards li {
             perspective: calc(192px * 4);
             scroll-snap-align: center;
             scroll-padding: 0;
         }
 
-        .album{
+        .album {
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             height: 192px;
             aspect-ratio: 1;
             scroll-padding: 0;
 
             transform-style: preserve-3d;
         }
-
     </style>
 </head>
 
@@ -60,9 +58,17 @@
 
         <ul class="cards">
             <li class="spacer"></li>
+            <li id="0">
+                <picture class="album">
+                    <source
+                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
+                    <img src="" alt="" height="100%">
+                </picture>
+            </li>
             <li id="1">
                 <picture class="album">
-                    <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
+                    <source
+                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
@@ -74,19 +80,22 @@
             </li>
             <li id="4">
                 <picture class="album">
-                    <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
+                    <source
+                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
             <li id="5">
                 <picture class="album">
-                    <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
+                    <source
+                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
             <li id="6">
                 <picture class="album">
-                    <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
+                    <source
+                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
                     <img src="" alt="" height="100%">
                 </picture>
             </li>
@@ -123,19 +132,19 @@
             </div>`,
             "lorem3"
         ]
-        
-        
-        function updateMargins(){
-            
+
+
+        function updateMargins() {
+
             const DISTANCE_TO_CENTER = document.documentElement.clientWidth / 2
             const HALF_ALBUM = albums[0].clientWidth / 2
-    
+
             spacers.forEach(spacer => {
                 // distance_to_center - half_album = spacer_width
                 spacer.style.minWidth = `${DISTANCE_TO_CENTER - HALF_ALBUM}px`
             });
         }
-        
+
 
         function updateRotations() {
             const wrapperCenter = wrapper.scrollLeft + wrapper.clientWidth / 2;
@@ -159,13 +168,13 @@
             });
         }
 
-        function loadText(id){
+        function loadText(id) {
             let text = document.querySelector(".text")
 
-            if(id != null && id != ''){
+            if (id != null && id != '') {
                 text.innerHTML = albumInfo[id]
             }
-            else{
+            else {
                 text.innerHTML = ''
             }
         }
@@ -174,22 +183,22 @@
         wrapper.addEventListener("scroll", updateRotations);
         wrapper.addEventListener("scrollsnapchange", (event) => {
             const snappedElement = event.snapTargetBlock || event.snapTargetInline
-            if(snappedElement){
-                if(snappedElement.id == ''){
-                    albums[1].scrollIntoView({behavior: 'smooth'});
-                    
+            if (snappedElement) {
+                if (snappedElement.id == '') {
+                    albums[1].scrollIntoView({ behavior: 'smooth' });
+
                 }
 
                 loadText(snappedElement.id)
-                
+
             }
         });
 
-        window.onload = ()=> {
-            albums[1].scrollIntoView({behavior: "smooth"})
+        window.onload = () => {
+            albums[1].scrollIntoView({ behavior: "smooth" })
             loadText(albums[1].id)
         }
-        
+
 
         updateMargins();
         updateRotations();
