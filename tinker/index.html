@@ -105,6 +105,26 @@
 
     <div class="text"></div>
 
+    <template>
+        <div class="info">
+            <p>
+                For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
+            </p>
+            <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
+
+            <p>
+
+                Honestly you should just go and listen to them, you'll thank me afterwards.
+            </p>
+            <p>
+                P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
+            </p>
+        </div>
+    </template>
+    <template>
+        <p>21354543</p>
+    </template>
+    
     <script>
         const wrapper = document.querySelector(".cards-wrapper");
         const albums = document.querySelectorAll(".album");
@@ -112,26 +132,6 @@
 
         const MAX_ROTATION = 65;   // degrees
         const ROTATION_FACTOR = 0.18;
-
-
-        albumInfo = [
-            "lorem1",
-            `<div class="info">
-                <p>
-                    For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
-                </p>
-                <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
-
-                <p>
-
-                    Honestly you should just go and listen to them, you'll thank me afterwards.
-                </p>
-                <p>
-                    P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
-                </p>
-            </div>`,
-            "lorem3"
-        ]
 
 
         function updateMargins() {
@@ -171,8 +171,10 @@
         function loadText(id) {
             let text = document.querySelector(".text")
 
+            text.textContent = ''
+
             if (id != null && id != '') {
-                text.innerHTML = albumInfo[id]
+                text.appendChild(document.getElementsByTagName("template")[id].content.cloneNode(true))
             }
             else {
                 text.innerHTML = ''
@@ -196,7 +198,9 @@
 
         window.onload = () => {
             albums[1].scrollIntoView({ behavior: "smooth" })
-            loadText(albums[1].id)
+            
+            console.log("dsa");
+            
         }
 
 
