@@ -18,7 +18,6 @@
         }
 
         .cards-wrapper {
-            border: 1px solid;
             width: 100%;
             height: fit-content;
             overflow-x: scroll;
@@ -113,35 +112,35 @@
                     </div>
                 </template>
             </li>
-            <li id="2"><div class="album">
-                <a href="https://open.spotify.com/intl-es/album/7GiLfxL1su3MSqz7pmKMZi" title="Turnstiles - Billy Joel">
-                    <picture>
-                        <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/6056294021058eaee7ceafc184d297d2.jpg#6056294021058eaee7ceafc184d297d2">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
-                    </picture>
-                </a>
-                <template>
-                    <div class="cover-info">
-                        <p><b>Turnstiles (1976)</b></p>
-                        <small>Album</small>
-                        <small><i>classic rock, piano</i></small>
-                    </div>
-                    <div class="info">
-                        <p>
-                            In 2025 while doing my annual weekly playlist, I stumbled upon Billy Joel's <i>Turnstiles</i>. And its very good! 
-                        </p>
-                        <p>
-                            This 1976 album is only a 36min run but i don't think it needs a longer playtime. It catches you just long enough for you to enjoy it and then sets you free. Hit song <a href="https://open.spotify.com/intl-es/track/6yjKlmm7vOszkXEUku1EM1">New York State of Mind</a> is a 6 minute <i>banger</i> of a song. But this record has many more songs that are worth listening, like <a href="https://open.spotify.com/intl-es/track/6TiehatA3uffBiejWLMi7Z">I've Loved These Days</a>.
-                        </p>
-                        <p>
-                            I've always listened to classic rock albums, mostly because of my dad, and became a fan of the style. This sounds like an album my dad would have in his vinyl collection.
-                        </p>
-                    </div>
-                </template>
-            </div></li>
-            <li id="3"></li>
-            <li id="4"></li>
-            <li id="5"><div class="explainer" style="background-color: red;"></div></li>
+            <li id="2">
+                    <div class="album">
+                    <a href="https://open.spotify.com/intl-es/album/7GiLfxL1su3MSqz7pmKMZi" title="Turnstiles - Billy Joel">
+                        <picture>
+                            <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/6056294021058eaee7ceafc184d297d2.jpg#6056294021058eaee7ceafc184d297d2">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
+                        </picture>
+                    </a>
+                    <template>
+                        <div class="cover-info">
+                            <p><b>Turnstiles (1976)</b></p>
+                            <small>Album</small>
+                            <small><i>classic rock, piano</i></small>
+                        </div>
+                        <div class="info">
+                            <p>
+                                In 2025 while doing my annual weekly playlist, I stumbled upon Billy Joel's <i>Turnstiles</i>. And its very good! 
+                            </p>
+                            <p>
+                                This 1976 album is only a 36min run but i don't think it needs a longer playtime. It catches you just long enough for you to enjoy it and then sets you free. Hit song <a href="https://open.spotify.com/intl-es/track/6yjKlmm7vOszkXEUku1EM1">New York State of Mind</a> is a 6 minute <i>banger</i> of a song. But this record has many more songs that are worth listening, like <a href="https://open.spotify.com/intl-es/track/6TiehatA3uffBiejWLMi7Z">I've Loved These Days</a>.
+                            </p>
+                            <p>
+                                I've always listened to classic rock albums, mostly because of my dad, and became a fan of the style. This sounds like an album my dad would have in his vinyl collection.
+                            </p>
+                        </div>
+                    </template>
+                </div>
+            </li>
+            <li id="5"><div class="album" style="background-color: red;"></div></li>
             <li class="spacer"></li>
         </ul>
     </div>
@@ -189,14 +188,21 @@
             });
         }
 
+        function snapToFirst() {
+            albums[0].parentElement.scrollIntoView({behavior: "smooth"})
+        }
+        function snapToLast(){
+            albums[albums.length-1].parentElement.scrollIntoView({behavior: "smooth"})
+        }
+
         window.addEventListener("resize", updateMargins);
         wrapper.addEventListener("scroll", ()=>{
             updateRotations();
         });
 
-
         updateMargins();
         updateRotations();
+        snapToFirst();
 
     </script>
 </body>
