@@ -44,7 +44,7 @@
             align-items: center;
             justify-content: center;
 
-            height: 192px;
+            width: 192px;
             aspect-ratio: 1;
             scroll-padding: 0;
 
@@ -86,18 +86,20 @@
                 </picture>
             </li>
             <li id="5">
-                <picture class="album">
-                    <source
-                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
-                    <img src="" alt="" height="100%">
-                </picture>
+                <a class="album" href="https://open.spotify.com/intl-es/album/6dqnfkFIk2k450lqaCPTKq" title="Random Access Memories - Daft Punk">
+                    <picture>
+                        <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
+                    </picture>
+                </a>
             </li>
             <li id="6">
-                <picture class="album">
-                    <source
-                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
-                    <img src="" alt="" height="100%">
-                </picture>
+                <a class="album" href="https://open.spotify.com/intl-es/album/7GiLfxL1su3MSqz7pmKMZi" title="Turnstiles - Billy Joel">
+                    <picture>
+                        <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/6056294021058eaee7ceafc184d297d2.jpg#6056294021058eaee7ceafc184d297d2">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
+                    </picture>
+                </a>
             </li>
             <li class="spacer"></li>
         </ul>
@@ -140,7 +142,7 @@
             const HALF_ALBUM = albums[0].clientWidth / 2
 
             spacers.forEach(spacer => {
-                // distance_to_center - half_album = spacer_width
+                // spacer_width = distance_to_center - half_album 
                 spacer.style.minWidth = `${DISTANCE_TO_CENTER - HALF_ALBUM}px`
             });
         }
@@ -170,42 +172,42 @@
 
         function loadText(id) {
             let text = document.querySelector(".text")
+            const templates = document.getElementsByTagName("template")
 
             text.textContent = ''
 
-            if (id != null && id != '') {
-                text.appendChild(document.getElementsByTagName("template")[id].content.cloneNode(true))
+            if (id == undefined || id == null || id == '') {
+                text.innerHTML = ''
             }
             else {
-                text.innerHTML = ''
+                let template = templates.item(id)
+                if(template != null){
+                    text.appendChild(template.content.cloneNode(true))
+                }
             }
         }
 
         window.addEventListener("resize", updateMargins);
         wrapper.addEventListener("scroll", updateRotations);
-        wrapper.addEventListener("scrollsnapchange", (event) => {
+        wrapper.addEventListener("scrollsnapchanging", (event) =>{
+
             const snappedElement = event.snapTargetBlock || event.snapTargetInline
-            if (snappedElement) {
-                if (snappedElement.id == '') {
-                    albums[1].scrollIntoView({ behavior: 'smooth' });
 
-                }
-
+            if(snapToElement.id != ''){
                 loadText(snappedElement.id)
-
             }
-        });
 
-        window.onload = () => {
-            albums[1].scrollIntoView({ behavior: "smooth" })
-            
-            console.log("dsa");
+        })
+
+
+        function snapToElement() {
             
         }
 
 
         updateMargins();
         updateRotations();
+        snapToElement();
 
     </script>
 </body>
