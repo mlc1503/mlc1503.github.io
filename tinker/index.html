@@ -91,28 +91,28 @@
                                         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
                                     </picture>
                                 </a>
+                                <template>
+                                    <div class="cover-info">
+                                        <p><b>Daft Punk</b></p>
+                                        <small>Artist</small>
+                                        <small><i>electronic, french, 90's</i></small>
+                                    </div>
+                                    <div class="info">
+                                        <p>
+                                            For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
+                                        </p>
+                                        <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
+    
+                                        <p>
+    
+                                            Honestly you should just go and listen to them, you'll thank me afterwards.
+                                        </p>
+                                        <p>
+                                            P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
+                                        </p>
+                                    </div>
+                                </template>
                             </div>
-                            <template>
-                                <div class="cover-info">
-                                    <p><b>Daft Punk</b></p>
-                                    <small>Artist</small>
-                                    <small><i>electronic, french, 90's</i></small>
-                                </div>
-                                <div class="info">
-                                    <p>
-                                        For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
-                                    </p>
-                                    <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
-
-                                    <p>
-
-                                        Honestly you should just go and listen to them, you'll thank me afterwards.
-                                    </p>
-                                    <p>
-                                        P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
-                                    </p>
-                                </div>
-                            </template>
                         </li>
                         <li id="2">
                             <div class="album">
@@ -182,7 +182,8 @@
                     rect.offsetLeft + rect.offsetWidth / 2;
 
                 //document_centerLine == wrapperCenterLine
-                //for an album to be centered, wrapper.scrollLeft - DOCUMENT_CENTER_LINE_albumCenter
+                //for an album to be centered:
+                //albumCenterPos =  wrapper.scrollLeft - DOCUMENT_CENTER_LINE - albumCenter 
                 const album_centerLine_pos = albumCenter - DOCUMENT_CENTER_LINE - wrapper.scrollLeft;
 
                 let rotation = album_centerLine_pos * ROTATION_FACTOR;
@@ -193,6 +194,10 @@
                 );
 
                 album.style.transform = `rotateY(${-rotation}deg)`;
+
+                if(rotation == 0){
+                    displayElementTemplate(album)
+                }
             });
         }
 
