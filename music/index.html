@@ -141,6 +141,32 @@
                             </div>
                         </template>
                     </li>
+                    <li class="album">
+                        <a href="https://open.spotify.com/intl-es/album/7GiLfxL1su3MSqz7pmKMZi">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/29296c27caf6749741ec354e160d05ed.jpg#29296c27caf6749741ec354e160d05ed" loading="lazy" alt="">
+                        </a>
+                        <template>
+                            <div class="cover-info">
+                                <div>
+                                    <h3>Basement Jaxx</h3>
+                                    <small>Artist</small></h3>
+                                </div>
+                                <small><i>house, dance, pop</i></small>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    Honestly, if it weren't because of PinkPantheress'
+                                        <a href="https://open.spotify.com/intl-es/album/3o81FH5FTYVtoBQOZr3T7y">
+                                            <i>Fancy That</i>
+                                        </a>
+                                    I wouldn't have discovered this incredible artist. Pink has taken a lot of samples from Jaxx's songs and for good reason. They're iconic! 
+                                </p>
+                                <p>
+                                    This album cover is Jaxx's <i>Rooty</i>, a 2001 album that still sounds fresh 25 years later. It's lively, fun to listen and fun to dance. From here, you'll probably recognize <a href="https://open.spotify.com/intl-es/track/4tI7eIbEUfInHS3sxfqkkr">Romeo</a> in Pink's <a href="https://open.spotify.com/intl-es/track/7aYGCP34Xo6XujY7Ix1DxB">Girl Like Me</a> or the <a href="https://open.spotify.com/intl-es/track/1hJN8hZvzEvOvqX32jSSrw"><i> 100 gecs'</i> version</a> of <a href="https://open.spotify.com/intl-es/track/3cJh89D0za2SW705fNBo3b">Where's Your Head At</a>.
+                                </p>
+                                </div>
+                            </template>
+                    </li>
                 </ul>
                 <div class="description"></div>
             </section>
@@ -196,6 +222,7 @@
         }
 
         updateRotations()
+        display(albums[0])
 
         cards.addEventListener("scroll", ()=>{
             updateRotations()
