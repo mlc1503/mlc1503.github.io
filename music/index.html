@@ -207,8 +207,9 @@
                 album.firstElementChild.style.transform =
                     `rotateY(${-rotation}deg)`;
 
-                if (Math.abs(rotation) < 1)
+                if (Math.abs(Math.floor(rotation)) < 5){
                     display(album);
+                }
             });
 
         }
