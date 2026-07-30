@@ -1,3 +1,10 @@
+:root {
+    /* music album cover size and perspective */
+    --album-size: 192px;
+    --album-perspective: calc(var(--album-size) * 4);
+}
+
+
 .spotify-link {
     width: 100%;
     display: flex;
@@ -6,47 +13,47 @@
     align-items: center;
 }
 
-.explainer {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: flex-start;
-    column-gap: 2em;
-}
-
-.presentation,
-.cover-info {
+.cards {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    overflow-x: auto;
+
+    list-style: none;
+    margin: 0;
+    padding: 0 calc(50% - var(--album-size) / 2);
+
+    scroll-snap-type: x mandatory;
+
+    height: 256px;
+}
+
+.album {
+    flex: 0 0 var(--album-size);
+
+    scroll-snap-align: center;
+
+    perspective: var(--album-perspective);
+}
+
+.album>a {
+    display: block;
+    transform-style: preserve-3d;
+}
+
+.album img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
 }
 
 .cover-info {
-    row-gap: 5px;
     text-align: center;
-}
 
-.cover-info>* {
-    margin: 0;
-}
-
-.info>p {
-    margin-top: 0em;
-}
-
-.explainer-wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 3em;
+    row-gap: var(--padding-horizontal);
 }
 
-@media (max-width: 650px) {
-    .explainer {
-        flex-direction: column;
-        row-gap: var(--padding-horizontal);
-    }
-
-    .presentation {
-        width: 100%;
-    }
+.cover-info div h3 {
+    margin: 0;
 }
