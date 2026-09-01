@@ -13,201 +13,171 @@
     <link rel="stylesheet" href="../css/global.css">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        .cards-wrapper {
-            border: 1px solid;
-            width: 100%;
-            height: fit-content;
-            overflow-x: scroll;
-
-            scroll-snap-type: x mandatory;
+        :root {
+            --album-size: 192px;
+            --album-perspective: calc(var(--album-size) * 4);
         }
 
         .cards {
-            list-style-type: none;
             display: flex;
+            align-items: center;
+            overflow-x: auto;
 
-            padding: 0;
-        }
+            list-style: none;
+            margin: 0;
+            padding: 0 calc(50% - var(--album-size) / 2);
 
-        .cards li {
-            perspective: calc(192px * 4);
-            scroll-snap-align: center;
-            scroll-padding: 0;
+            scroll-snap-type: x mandatory;
+
+            height: 220px;
         }
 
         .album {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex: 0 0 var(--album-size);
 
-            width: 192px;
-            aspect-ratio: 1;
-            scroll-padding: 0;
+            scroll-snap-align: center;
 
+            perspective: var(--album-perspective);
+        }
+
+        .album > a {
+            display: block;
             transform-style: preserve-3d;
+        }
+
+        .album img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="cards-wrapper">
+    <main>
+        <article>
+            <section class="albums">
+                <ul class="cards">
+                    <li class="album">
+                        <a href="https://open.spotify.com/intl-es/album/6dqnfkFIk2k450lqaCPTKq">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/cd63b835a56cfa83564f4de288fa8194.jpg#cd63b835a56cfa83564f4de288fa8194" loading="lazy" alt="Turboviolencia - VVV[Trippin' you]">
+                        </a>
+                        <template>
+                            <div class="cover-info">
+                                <p><b>VVV [Trippin'you]</b></p>
+                                <small>Artist</small>
+                                <small><i>bakala, techno, post-punk</i></small>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    In 2021 I went to a Depresión Sonora concert and VVV were the opening act. I did not know nothing about them and I fell in love with their performance and their music. Even more than Depresión Sonora.  
+                                </p>
+                                <p>Since then, this band has been on my most listened artist on Spotify two years in a row! I love the depressive, angry and radical sound that they have going on.</p>
+                                <p>I have many favourite tracks, but you should listen to <a href="https://open.spotify.com/intl-es/track/2vlCD96gbODeKevuusi8Ic">Destrucción</a>.</p>
+                            </div>
+                        </template>
+                    </li>
+                    <li class="album">
+                        <a href="https://open.spotify.com/intl-es/album/6dqnfkFIk2k450lqaCPTKq">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088" loading="lazy" alt="Random Access Memories - Daft Punk">
+                        </a>
+                        <template>
+                            <div class="cover-info">
+                                <p><b>Daft Punk</b></p>
+                                <small>Artist</small>
+                                <small><i>electronic, french, 90's</i></small>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
+                                </p>
+                                <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
 
-        <ul class="cards">
-            <li class="spacer"></li>
-            <li id="0">
-                <picture class="album">
-                    <source
-                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
-                    <img src="" alt="" height="100%">
-                </picture>
-            </li>
-            <li id="1">
-                <picture class="album">
-                    <source
-                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
-                    <img src="" alt="" height="100%">
-                </picture>
-            </li>
-            <li id="2">
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li id="3">
-                <div class="album" style="background:#ff4d4d">1asd</div>
-            </li>
-            <li id="4">
-                <picture class="album">
-                    <source
-                        srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
-                    <img src="" alt="" height="100%">
-                </picture>
-            </li>
-            <li id="5">
-                <a class="album" href="https://open.spotify.com/intl-es/album/6dqnfkFIk2k450lqaCPTKq" title="Random Access Memories - Daft Punk">
-                    <picture>
-                        <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/11dd7e48a1f042c688bf54985f01d088.jpg#11dd7e48a1f042c688bf54985f01d088">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
-                    </picture>
-                </a>
-            </li>
-            <li id="6">
-                <a class="album" href="https://open.spotify.com/intl-es/album/7GiLfxL1su3MSqz7pmKMZi" title="Turnstiles - Billy Joel">
-                    <picture>
-                        <source srcset="https://lastfm.freetls.fastly.net/i/u/770x0/6056294021058eaee7ceafc184d297d2.jpg#6056294021058eaee7ceafc184d297d2">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" height="192px">
-                    </picture>
-                </a>
-            </li>
-            <li class="spacer"></li>
-        </ul>
-    </div>
+                                <p>
 
-    <div class="text"></div>
-
-    <template>
-        <div class="info">
-            <p>
-                For the few of you who might not who Daft Punk are, they are an electronic dance music french duo. They made a big impact in house music, electronic music during the 90's and 00's and their music is simply sublime. 
-            </p>
-            <p>They have 4 absurdly good albums, although if you ask me about my favourite of them it would be <a href="https://open.spotify.com/intl-es/album/2noRn2Aes5aoNVsU6iWThc">Discovery</a>. I have <a href="https://open.spotify.com/intl-es/album/4m2880jivSbbyEGAKfITCa">Random Access Memories</a> on vinyl, and it's definitely an experience. <br></p>
-
-            <p>
-
-                Honestly you should just go and listen to them, you'll thank me afterwards.
-            </p>
-            <p>
-                P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
-            </p>
-        </div>
-    </template>
-    <template>
-        <p>21354543</p>
-    </template>
+                                    Honestly you should just go and listen to them, you'll thank me afterwards.
+                                </p>
+                                <p>
+                                    P.S: You should listen to <a href="https://open.spotify.com/intl-es/track/7oaEjLP2dTJLJsITbAxTOz">Touch</a>.
+                                </p>
+                            </div>
+                        </template>
+                    </li>
+                    <li class="album">
+                        <a href="https://open.spotify.com/intl-es/album/7GiLfxL1su3MSqz7pmKMZi">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/6056294021058eaee7ceafc184d297d2.jpg#6056294021058eaee7ceafc184d297d2" loading="lazy" alt="">
+                        </a>
+                        <template>
+                            <div class="cover-info">
+                                <p><b>Turnstiles (1976)</b></p>
+                                <small>Album</small>
+                                <small><i>classic rock, piano</i></small>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    In 2025 while doing my annual weekly playlist, I stumbled upon Billy Joel's <i>Turnstiles</i>. And its very good! 
+                                </p>
+                                <p>
+                                    This 1976 album is only a 36min run but i don't think it needs a longer playtime. It catches you just long enough for you to enjoy it and then sets you free. Hit song <a href="https://open.spotify.com/intl-es/track/6yjKlmm7vOszkXEUku1EM1">New York State of Mind</a> is a 6 minute <i>banger</i> of a song. But this record has many more songs that are worth listening, like <a href="https://open.spotify.com/intl-es/track/6TiehatA3uffBiejWLMi7Z">I've Loved These Days</a>.
+                                </p>
+                                <p>
+                                    I've always listened to classic rock albums, mostly because of my dad, and became a fan of the style. This sounds like an album my dad would have in his vinyl collection.
+                                </p>
+                            </div>
+                        </template>
+                    </li>
+                </ul>
+                <div class="description"></div>
+            </section>
+        </article>
+    </main>
     
+
     <script>
-        const wrapper = document.querySelector(".cards-wrapper");
-        const albums = document.querySelectorAll(".album");
-        const spacers = document.querySelectorAll(".spacer")
+        const cards = document.querySelector(".cards");
+        const albums = [...document.querySelectorAll(".album")];
+        const description = document.querySelector(".description");
 
-        const MAX_ROTATION = 65;   // degrees
-        const ROTATION_FACTOR = 0.18;
-
-
-        function updateMargins() {
-
-            const DISTANCE_TO_CENTER = document.documentElement.clientWidth / 2
-            const HALF_ALBUM = albums[0].clientWidth / 2
-
-            spacers.forEach(spacer => {
-                // spacer_width = distance_to_center - half_album 
-                spacer.style.minWidth = `${DISTANCE_TO_CENTER - HALF_ALBUM}px`
-            });
-        }
-
+        const MAX_ROTATION = 65;
+        const ROTATION_FACTOR = .18;
 
         function updateRotations() {
-            const wrapperCenter = wrapper.scrollLeft + wrapper.clientWidth / 2;
-
+            const center = window.innerWidth / 2;
             albums.forEach(album => {
-                const rect = album.parentElement;
 
-                const albumCenter =
-                    rect.offsetLeft + rect.offsetWidth / 2;
+                const rect = album.getBoundingClientRect();
 
-                const distance = albumCenter - wrapperCenter;
-
-                let rotation = distance * ROTATION_FACTOR;
+                let rotation =
+                    (rect.left + rect.width / 2 - center)
+                    * ROTATION_FACTOR;
 
                 rotation = Math.max(
                     -MAX_ROTATION,
                     Math.min(MAX_ROTATION, rotation)
                 );
 
-                album.style.transform = `rotateY(${rotation}deg)`;
+                album.firstElementChild.style.transform =
+                    `rotateY(${-rotation}deg)`;
+
+                if (Math.abs(rotation) < 1)
+                    display(album);
             });
+
         }
 
-        function loadText(id) {
-            let text = document.querySelector(".text")
-            const templates = document.getElementsByTagName("template")
-
-            text.textContent = ''
-
-            if (id == undefined || id == null || id == '') {
-                text.innerHTML = ''
-            }
-            else {
-                let template = templates.item(id)
-                if(template != null){
-                    text.appendChild(template.content.cloneNode(true))
-                }
-            }
+        function display(album) {
+            description.replaceChildren(
+                album.querySelector("template")
+                    .content
+                    .cloneNode(true)
+            );
         }
 
-        window.addEventListener("resize", updateMargins);
-        wrapper.addEventListener("scroll", updateRotations);
-        wrapper.addEventListener("scrollsnapchanging", (event) =>{
+        updateRotations()
 
-            const snappedElement = event.snapTargetBlock || event.snapTargetInline
-
-            if(snapToElement.id != ''){
-                loadText(snappedElement.id)
-            }
-
+        cards.addEventListener("scroll", ()=>{
+            updateRotations()
         })
-
-
-        function snapToElement() {
-            
-        }
-
-
-        updateMargins();
-        updateRotations();
-        snapToElement();
 
     </script>
 </body>
